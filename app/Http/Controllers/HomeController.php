@@ -452,13 +452,12 @@ class HomeController extends Controller
 
         $title = "Home page";
         // $posts = Post::all();
-        $posts = Post::orderBy('id','desc')->get();
+        $posts = Post::orderBy('id','desc')->paginate(4);
         $launchTime = Carbon::now();
         $time = $launchTime->format('H:i');
         $firstVisit = $request->cookie('first_visit');
         $currentTime = now();
 
-    // Проверяем, существует ли файл cookie first_visit
         if (empty($firstVisit)) {
             Cookie::queue('firstVisit', $time, 3600);
         }

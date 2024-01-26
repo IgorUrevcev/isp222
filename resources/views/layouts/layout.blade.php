@@ -167,11 +167,19 @@
           Приведствую {{ Auth::user()->name }}!
           @endif
           
+          
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
           <h4>Contact</h4>
           <ul class="list-unstyled">
             @auth
+
+            <a href="@" class="text-white">
+                
+            @if (auth()->user()->avatar)
+                  <img src="{{  asset('storage/app/'.auth()->user()->avatar)}}" alt="" height="60">
+            @endif   
+            </a>
             <li><a href="{{route('post.create')}}" class="text-white">Create Post</a></li>
             <li><a href="{{route('logout')}}" class="text-white">Logout</a></li>
             

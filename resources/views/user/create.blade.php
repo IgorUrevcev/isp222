@@ -7,7 +7,7 @@
 @section('content')  
 <div class="container">
     <h2 class="mb-3 mt-5">Регистрация пользователя</h2>
-    <form class="mt-5" action="{{route('user.store')}}" method="POST">
+    <form class="mt-5" action="{{route('user.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
     <div class="mb-3 mt-5">
         @error('name')
@@ -38,6 +38,11 @@
     <div class="mb-3 mt-5">
         <label for="password_confirmation" class="form-label">Password</label>
         <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Password">
+    </div>
+
+    <div class="mb-3 mt-5">
+        <label for="avatar" class="form-label">Avatar</label>
+        <input type="file" name="avatar" id="avatar" class="form-control-file">
     </div>
 
     <button type="sudmit" class="btn btn-primary">Отправить</button>
