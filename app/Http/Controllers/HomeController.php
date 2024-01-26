@@ -452,7 +452,7 @@ class HomeController extends Controller
 
         $title = "Home page";
         // $posts = Post::all();
-        $posts = Post::orderBy('id','desc')->paginate(4);
+        $posts = Post::orderBy('id','desc')->paginate(3);
         $launchTime = Carbon::now();
         $time = $launchTime->format('H:i');
         $firstVisit = $request->cookie('first_visit');
